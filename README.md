@@ -1,2 +1,3 @@
 # endpoint-builder
- A simple tool tfor creating a js file will endpoints
+
+A simple tool for creating a js file with endpoints

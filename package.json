@@ -2,8 +2,14 @@
   "name": "endpoint-builder",
   "version": "1.0.0",
   "description": "A simple tool for creating a js file with endpoints",
-  "main": "lib/index.js",
-  "scripts": {},
+  "main": "endpoints/index.js",
+  "files": [
+    "lib",
+    "endpoints"
+  ],
+  "scripts": {
+    "test-init": "node bin/init.js"
+  },
   "keywords": [
     "endpoints",
     "uri",
