@@ -12,9 +12,14 @@ const createConfig = async () => {
       $schema: process.cwd() + "/schema.json",
       hi: "there",
     };
+
     writeFile(root, "endpoint.config.json", JSON.stringify(data, null, 2));
+    return true;
   } catch (error) {
-    console.log("Could not find root dir!");
+    console.log(
+      "Could not find root dir! Please create endpoint.config.json manually"
+    );
+    process.exit(1);
   }
 };
 

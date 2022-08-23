@@ -1,2 +1,2 @@
-declare const createConfig: () => Promise<void>;
+declare const createConfig: () => Promise<boolean>;
 export default createConfig;

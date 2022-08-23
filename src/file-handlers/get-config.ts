@@ -8,6 +8,7 @@ const getConfig = async (CONFIG_NAME = "endpoint.config.json") => {
     return JSON.parse(config);
   } catch (error) {
     if (error instanceof Error) console.log(error.message);
+    return false;
   }
 };
 
