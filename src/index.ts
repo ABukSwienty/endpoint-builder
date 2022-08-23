@@ -1,8 +1,9 @@
-import getConfig from "./functions/get-config";
+import createConfig from "./file-handlers/create-config";
 
 const main = async () => {
-  const config = await getConfig();
-  console.log(config);
+  const createConf = await createConfig();
+
+  /* const config = await getConfig(); */
 };
 
 export default main;

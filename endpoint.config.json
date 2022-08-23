@@ -1,3 +1,22 @@
 {
-  "hi": "hi!"
+  "$schema": "/Users/alexander/WebDev/packages/endpoint-builder/schema.json",
+  "hi": "there",
+  "parents": {
+    "FRONTEND": {
+      "pathType": "string"
+    },
+    "BACKEND": {
+      "pathType": "function"
+    }
+  },
+  "folders": {
+    "NestJs": {
+      "path": "backend/src",
+      "exclude": ["auth"]
+    }
+  },
+  "endpoints": {},
+  "BASE_URI": {
+    "path": "asd"
+  }
 }

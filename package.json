@@ -5,7 +5,8 @@
   "main": "endpoints/index.js",
   "files": [
     "lib",
-    "endpoints"
+    "endpoints",
+    "schema.json"
   ],
   "scripts": {
     "test-init": "node bin/init.js"

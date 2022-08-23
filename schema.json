@@ -1,0 +1,115 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "title": "Endpoint builder schema",
+  "description": "Config for generating endpoints",
+  "type": "object",
+  "properties": {
+    "endpoints": {
+      "description": "The URI endpoints",
+      "type": "object",
+      "patternProperties": {
+        "^.*$": {
+          "description": "Any custom endpoint",
+          "type": "object",
+          "properties": {
+            "excludeAll": {
+              "description": "Paths to be excluded",
+              "type": "boolean"
+            },
+            "exclude": {
+              "description": "Paths to be excluded",
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "include": {
+              "description": "Paths to include. Will therefore exclude all others",
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "suffix": {
+              "description": "Suffixes to be added at the end of the path. Supports types: ['id:number', 'type:string', 'custom-suffix']",
+              "examples": [["id:number"], ["type:string"], ["custom-suffix"]],
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "custom": {
+              "description": "Custom paths",
+              "type": "object",
+              "patternProperties": {
+                "^.*$": {
+                  "description": "Suffixes for the custom path. Follows same rules as suffix.",
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "parents": {
+      "description": "Parent keys. Each parent will contain all the paths",
+      "type": "object",
+      "patternProperties": {
+        "^.*$": {
+          "description": "A parent key",
+          "type": "object",
+          "properties": {
+            "pathType": {
+              "description": "The type of path the endpoint should return",
+              "type": "string",
+              "examples": ["string", "function"]
+            }
+          },
+          "required": ["pathType"]
+        }
+      }
+    },
+    "paths": {
+      "description": "The endpoint paths",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "folders": {
+      "description": "Read a directory to automatically get path names",
+      "type": "object",
+      "patternProperties": {
+        "^.*$": {
+          "description": "A folder",
+          "type": "object",
+          "properties": {
+            "path": {
+              "description": "The path to the folder",
+              "type": "string"
+            },
+            "exclude": {
+              "description": "The dir items to exclude",
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "required": ["path"]
+        }
+      }
+    }
+  },
+  "required": ["endpoints"]
+}
