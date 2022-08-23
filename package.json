@@ -1,0 +1,17 @@
+{
+  "name": "endpoint-builder",
+  "version": "1.0.0",
+  "description": "A simple tool for creating a js file with endpoints",
+  "main": "lib/index.js",
+  "scripts": {},
+  "keywords": [
+    "endpoints",
+    "uri",
+    "typescript"
+  ],
+  "author": "ABukSwienty",
+  "license": "MIT",
+  "dependencies": {
+    "typescript": "^4.7.4"
+  }
+}
