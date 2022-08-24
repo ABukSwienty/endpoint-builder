@@ -1,9 +1,6 @@
 # Endpoint-builder
 
-> <br>
 > A simple tool for creating a typesafe .js file with an object that holds endpoints.
->
-> <br>
 
 <br>
 
@@ -127,10 +124,10 @@ export default ENDPOINTS;
 
 ### Parents options
 
-| Option              | Description                                  | Defaults                 | Type                                                    | Required |
-| ------------------- | -------------------------------------------- | ------------------------ | ------------------------------------------------------- | -------- |
-| `path-type`         | The type of path the endpoint should return. | `"string" OR "function"` | global-include-path-name ([see above](#config-options)) | no       |
-| `include-path-name` | Include the path name in the endpoint.       | `boolean`                | global-include-path-name ([see above](#config-options)) | no       |
+| Option              | Description                                  | Defaults                                         | Type                     | Required |
+| ------------------- | -------------------------------------------- | ------------------------------------------------ | ------------------------ | -------- |
+| `path-type`         | The type of path the endpoint should return. | include-path-name ([see above](#config-options)) | `"string" OR "function"` | no       |
+| `include-path-name` | Include the path name in the endpoint.       | include-path-name ([see above](#config-options)) | `boolean`                | no       |
 
 <br>
 

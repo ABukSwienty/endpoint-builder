@@ -65,7 +65,7 @@
       "minLength": 1
     },
     "file-prefixes": {
-      "description": "Add any additional information to the file such as types or imports",
+      "description": "Add any additional information to add to the beginning of the endpoints file such as types or imports",
       "type": "array",
       "items": {
         "type": "string",
