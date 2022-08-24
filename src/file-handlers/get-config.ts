@@ -14,7 +14,7 @@ const getConfig = async (
     return JSON.parse(config);
   } catch (error) {
     if (error instanceof Error)
-      logger.fatal("An unknown error occurred: " + error.message);
+      logger.error("An unknown error occurred: " + error.message);
     return false;
   }
 };

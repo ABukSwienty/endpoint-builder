@@ -18,6 +18,8 @@ const init = async () => {
       );
     } else {
       logger.success(`Created config at ${CONSTANTS.ROOT}`);
+      logger.message("Please add endpoints and run again.");
+      process.exit();
     }
   }
 
