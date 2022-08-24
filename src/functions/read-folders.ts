@@ -22,7 +22,7 @@ function readFolders() {
     const dirExists = fs.existsSync(path);
     if (!dirExists)
       logger.fatal(
-        `Could not find ${path}! Please check your endpoint.config.json and make sure the path is relative to where the config file is and does not start with a /.`
+        `Could not find folders ${name} path: ${path}! Please check your endpoint.config.json and make sure the path is relative to where the config file is and does not start with a /`
       );
 
     const fileNames = fs.readdirSync(CONSTANTS.ROOT + path);
