@@ -7,13 +7,15 @@
   "files": [
     "lib",
     "endpoints",
-    "schema.json"
+    "schema.json",
+    "src-endpoint"
   ],
   "bin": {
     "endpoint-builder-init": "bin/init.js"
   },
   "scripts": {
-    "test-init": "node bin/init.js"
+    "test-init": "node bin/init.js",
+    "build": "rm -r lib && tsc"
   },
   "keywords": [
     "endpoints",
