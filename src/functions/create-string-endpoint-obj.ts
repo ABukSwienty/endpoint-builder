@@ -30,7 +30,9 @@ function createStringEndpointObj(
     for (const [base, basePath] of Object.entries(CONSTANTS.BASE_PATHS)) {
       const prefix = includePathName ? basePath : ``;
       const valueAsString = Array.isArray(suffix)
-        ? `${base}: "${prefix}/${suffixReader(suffix).toString}",`
+        ? `${base}: "${prefix !== "" ? prefix + "/" : ``}${
+            suffixReader(suffix).toString
+          }",`
         : `${base}: "${prefix}",`;
 
       const functionToStringArgs = Array.isArray(suffix)
