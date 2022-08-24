@@ -16,7 +16,8 @@
     "test-init": "node bin/init.js",
     "dev": "tsc -w",
     "build": "rm -r lib && tsc",
-    "patch": "npm version patch && git push && npm publish"
+    "patch": "npm version patch && git push && npm publish",
+    "minor": "npm version minor && git push && npm publish"
   },
   "keywords": [
     "endpoints",
