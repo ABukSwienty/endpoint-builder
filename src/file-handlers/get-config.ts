@@ -13,8 +13,7 @@ const getConfig = async (
     CONSTANTS.ROOT = path.replace(CONFIG_NAME, "");
     return JSON.parse(config);
   } catch (error) {
-    if (error instanceof Error)
-      logger.error("An unknown error occurred: " + error.message);
+    if (error instanceof Error) logger.error(error.message);
     return false;
   }
 };

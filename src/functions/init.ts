@@ -10,7 +10,7 @@ const init = async () => {
   let config = await getConfig();
 
   if (!config) {
-    logger.warning("Could not find conifg! Attempting to create...");
+    logger.warning("Attempting to create config...");
     config = await createConfig();
     if (!config) {
       logger.fatal(
