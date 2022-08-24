@@ -19,7 +19,7 @@ function readFolders() {
   )) {
     const exclude = configExclude ? configExclude : [];
 
-    const dirExists = fs.existsSync(path);
+    const dirExists = fs.existsSync(CONSTANTS.ROOT + "/" + path);
     if (!dirExists)
       logger.fatal(
         `Could not find folders ${name} path: '${path}'. Please check your endpoint.config.json and make sure the path is relative to where the config file is and does not start with a /`
