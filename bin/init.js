@@ -10,7 +10,7 @@ async function init() {
   try {
     await exec(`cd ${root} && tsc -p tsconfig.build.json`);
     logger.default.success("Generated files:");
-    logger.default.success(`${root}/dist`);
+    logger.default.success(`${root}/dist/index.js`);
   } catch (e) {
     console.error(e);
     logger.default.error("An unknown error occurred!");

@@ -17,8 +17,10 @@ const init = async () => {
         "Could not create endpoint.config.json. Please add it manually."
       );
     } else {
-      logger.success(`Created config at ${CONSTANTS.ROOT}`);
-      logger.message("Please add endpoints and run again.");
+      logger.success(`Created a config file at ${CONSTANTS.ROOT}`);
+      logger.message(
+        "Added example data to the config file, please fit it to your needs"
+      );
       process.exit();
     }
   }

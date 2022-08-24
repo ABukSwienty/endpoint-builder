@@ -3,6 +3,7 @@ import createEndpoint from "./functions/create-endpoint";
 import init from "./functions/init";
 import logger from "./logger";
 import path from "path";
+import createFilePrefixes from "./functions/create-file-prefixes";
 
 export interface EndpointOptions {
   suffix: string[];
@@ -24,6 +25,7 @@ export interface ParentOptions {
 }
 
 export interface EndpointConfig {
+  $schema?: string;
   "file-prefixes"?: string[];
   "slug-type": string;
   "include-path-name": boolean;
@@ -40,7 +42,12 @@ const main = async () => {
   try {
     await init();
     const endpoint = createEndpoint();
-    writeFile(path.resolve(__dirname, ".."), "index.ts", endpoint);
+    const filePrefixes = createFilePrefixes();
+    writeFile(
+      path.resolve(__dirname, ".."),
+      "index.ts",
+      filePrefixes + "\n" + endpoint
+    );
   } catch (error) {
     if (error instanceof Error)
       logger.fatal("An unknown error occurred: " + error.message);

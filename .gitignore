@@ -2,3 +2,4 @@
 endpoint.config.json
 /test-*
 /dist
+index.ts
