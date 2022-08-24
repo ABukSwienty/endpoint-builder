@@ -1,7 +1,7 @@
 {
   "name": "endpoint-builder",
   "version": "0.1.0",
-  "description": "A simple tool for creating a js file with endpoints",
+  "description": "A simple tool for creating a typesafe js file with endpoints",
   "repository": "github:ABukSwienty/endpoint-builder",
   "main": "dist/index.js",
   "files": [

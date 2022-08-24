@@ -14,9 +14,12 @@ const createConfig = async () => {
     const data: EndpointConfig = {
       $schema: "node_modules/endpoint-builder/endpoint.schema.json",
       ...CONSTANTS.CONFIG,
+      "file-prefixes": [
+        'type Example = "an example of prefixing the file with additional types" | string',
+      ],
       endpoints: {
         GET: {
-          suffix: ["id:number"],
+          suffix: ["id:number", "type:Example"],
         },
         GET_ALL: {},
       },
