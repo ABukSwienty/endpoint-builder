@@ -3,7 +3,7 @@
   "version": "0.0.7",
   "description": "A simple tool for creating a js file with endpoints",
   "repository": "github:ABukSwienty/endpoint-builder",
-  "main": "endpoints/index.js",
+  "main": "dist/index.js",
   "files": [
     "lib",
     "schema.json",
