@@ -1,5 +1,4 @@
 /node_modules
 endpoint.config.json
 /test-*
-/endpoints
-/src-endpoint
+/dist

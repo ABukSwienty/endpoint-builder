@@ -40,11 +40,7 @@ const main = async () => {
   try {
     await init();
     const endpoint = createEndpoint();
-
     writeFile(path.resolve(__dirname, ".."), "index.ts", endpoint);
-
-    logger.success("Wrote endpoints!");
-    return;
   } catch (error) {
     if (error instanceof Error)
       logger.fatal("An unknown error occurred: " + error.message);

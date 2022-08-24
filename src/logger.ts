@@ -10,7 +10,7 @@ const logger = {
       prefix[1],
       "\x1b[0m",
       "\x1b[32m",
-      "SUCCESS:",
+      "Success:",
       "\x1b[32m",
       msg,
       "\x1b[0m"
@@ -34,7 +34,7 @@ const logger = {
       prefix[1],
       "\x1b[0m",
       "\x1b[33m",
-      "WARNING:",
+      "Warning:",
       "\x1b[33m",
       msg,
       "\x1b[0m"

@@ -14,7 +14,9 @@
   },
   "scripts": {
     "test-init": "node bin/init.js",
-    "build": "rm -r lib && tsc"
+    "dev": "tsc -w",
+    "build": "rm -r lib && tsc",
+    "patch": "npm version patch && npm publish"
   },
   "keywords": [
     "endpoints",

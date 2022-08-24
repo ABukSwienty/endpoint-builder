@@ -7,9 +7,10 @@ var exec = util.promisify(require("child_process").exec);
 async function init() {
   await main.default();
   var root = __dirname.replace("/bin", "");
-  logger.default.success("Complete!");
   try {
     await exec(`cd ${root} && tsc -p tsconfig.build.json`);
+    logger.default.success("Generated files:");
+    logger.default.success(`${root}/dist`);
   } catch (e) {
     console.error(e);
     logger.default.error("An unknown error occurred!");
