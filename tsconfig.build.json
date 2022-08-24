@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "outDir": "./endpoints",
+    "outDir": "./",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "declaration": true,
@@ -21,5 +21,5 @@
     "strict": true,
     "esModuleInterop": true
   },
-  "include": ["src-endpoint/*.ts"]
+  "include": ["index.ts"]
 }

@@ -1,8 +1,8 @@
 import writeFile from "./file-handlers/write-file";
 import createEndpoint from "./functions/create-endpoint";
-
 import init from "./functions/init";
 import logger from "./logger";
+import path from "path";
 
 export interface EndpointOptions {
   suffix: string[];
@@ -41,7 +41,7 @@ const main = async () => {
     await init();
     const endpoint = createEndpoint();
 
-    writeFile("./src-endpoint", "endpoint.ts", endpoint);
+    writeFile(path.resolve(__dirname, ".."), "index.ts", endpoint);
 
     logger.success("Wrote endpoints!");
     return;

@@ -6,9 +6,8 @@
   "main": "endpoints/index.js",
   "files": [
     "lib",
-    "endpoints",
     "schema.json",
-    "src-endpoint"
+    "tsconfig.build.json"
   ],
   "bin": {
     "endpoint-builder-init": "bin/init.js"
