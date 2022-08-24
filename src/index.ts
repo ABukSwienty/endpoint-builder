@@ -1,12 +1,53 @@
-import createConfig from "./file-handlers/create-config";
-import getConfig from "./file-handlers/get-config";
+import writeFile from "./file-handlers/write-file";
+import createEndpoint from "./functions/create-endpoint";
+
+import init from "./functions/init";
+import logger from "./logger";
+
+export interface EndpointOptions {
+  suffix: string[];
+  include: string[];
+  exclude: string[];
+  excludeAll: boolean;
+  custom: { [key: string]: string[] };
+}
+
+export interface FolderOptions {
+  path: string;
+  exclude?: string[];
+  include?: string[];
+}
+
+export interface ParentOptions {
+  "path-type"?: "string" | "function";
+  "include-path-name"?: boolean;
+}
+
+export interface EndpointConfig {
+  "file-prefixes"?: string[];
+  "slug-type": string;
+  "include-path-name": boolean;
+  "include-base-paths": boolean;
+  "path-type": "string" | "function";
+  "const-name": string;
+  endpoints: Record<string, Partial<EndpointOptions>>;
+  parents?: Record<string, ParentOptions>;
+  folders?: Record<string, FolderOptions>;
+  paths?: string[];
+}
 
 const main = async () => {
-  const config = await getConfig();
+  try {
+    await init();
+    const endpoint = createEndpoint();
 
-  if (!config) {
-    console.log("Creating config");
-    await createConfig();
+    writeFile("./src-endpoint", "endpoint.ts", endpoint);
+
+    logger.success("Wrote endpoints!");
+    return;
+  } catch (error) {
+    if (error instanceof Error)
+      logger.fatal("An unknown error occurred: " + error.message);
   }
 };
 

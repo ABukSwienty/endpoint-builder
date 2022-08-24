@@ -1,13 +1,12 @@
 /* import logger from "../log/logger"; */
 import fs from "fs";
+import logger from "../logger";
 function writeFile(path: string, name: string, data: string) {
   try {
     fs.writeFileSync(path + "/" + name, data);
     return true;
   } catch (error) {
-    /* logger.error(`Could not write ${name} to ${path}!`); */
-    console.log(error);
-    process.exit();
+    logger.fatal(`Could not write ${name} to ${path}!`);
   }
 }
 

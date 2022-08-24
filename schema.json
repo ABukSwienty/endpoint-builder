@@ -46,7 +46,7 @@
               "type": "object",
               "patternProperties": {
                 "^.*$": {
-                  "description": "Suffixes for the custom path. Follows same rules as suffix.",
+                  "description": "Suffixes for the custom path. Follows the same rules as suffix.",
                   "type": "array",
                   "items": {
                     "type": "string",
@@ -59,6 +59,35 @@
         }
       }
     },
+    "const-name": {
+      "description": "The const name. Defaults to ENDPOINTS",
+      "type": "string",
+      "minLength": 1
+    },
+    "file-prefixes": {
+      "description": "Add any additional information to the file such as types or imports",
+      "type": "string",
+      "minLength": 1
+    },
+    "slug-type": {
+      "description": "The slug identifier. Defaults to (colon) :*slug*",
+      "type": "string",
+      "minLength": 6,
+      "examples": [":*slug*", "{*slug*}"]
+    },
+    "include-path-name": {
+      "description": "Include the path name in the endpoint. Defaults to false. Can be overrided if using parents",
+      "type": "boolean"
+    },
+    "include-base-paths": {
+      "description": "Include base paths as a key property. Defaults to true",
+      "type": "boolean"
+    },
+    "path-type": {
+      "description": "The type of path the endpoint should return — function | string. Defaults to string. Can be overrided if using parents",
+      "type": "string",
+      "examples": ["string", "function"]
+    },
     "parents": {
       "description": "Parent keys. Each parent will contain all the paths",
       "type": "object",
@@ -67,18 +96,20 @@
           "description": "A parent key",
           "type": "object",
           "properties": {
-            "pathType": {
-              "description": "The type of path the endpoint should return",
+            "path-type": {
+              "description": "The type of path the endpoint should return — function | string. Defaults global path-type",
               "type": "string",
               "examples": ["string", "function"]
+            },
+            "include-path-name": {
+              "description": "Include the path name in the endpoint. Defaults to the global include-path-name"
             }
-          },
-          "required": ["pathType"]
+          }
         }
       }
     },
     "paths": {
-      "description": "The endpoint paths",
+      "description": "Manually add endpoint paths",
       "type": "array",
       "items": {
         "type": "string",
@@ -86,7 +117,7 @@
       }
     },
     "folders": {
-      "description": "Read a directory to automatically get path names",
+      "description": "Read a directory to get path names. Will remove the file extension.",
       "type": "object",
       "patternProperties": {
         "^.*$": {
@@ -94,11 +125,19 @@
           "type": "object",
           "properties": {
             "path": {
-              "description": "The path to the folder",
+              "description": "The path to the folder relative to the config file",
               "type": "string"
             },
             "exclude": {
               "description": "The dir items to exclude",
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "include": {
+              "description": "The dir items to include",
               "type": "array",
               "items": {
                 "type": "string",

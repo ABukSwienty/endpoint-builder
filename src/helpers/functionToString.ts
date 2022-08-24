@@ -5,7 +5,9 @@ const functionToString = (
   data?: ReturnType<typeof suffixReader>
 ) => {
   let fncArguments = "(";
+
   let fncBody = `=> ("${uri}"`;
+  if (uri === "") fncBody = `=> (`;
 
   if (!data) {
     fncArguments += ")";
@@ -17,7 +19,8 @@ const functionToString = (
     const type = data.types[index];
     const suffix = data.suffixes[index];
 
-    fncBody += " + ";
+    if (index !== 0 && uri === "") fncBody += " + ";
+    else if (uri !== "") fncBody += " + ";
 
     if (type !== null) {
       fncArguments += `${suffix}: ${type}, `;

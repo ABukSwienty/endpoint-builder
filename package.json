@@ -9,7 +9,7 @@
     "schema.json"
   ],
   "bin": {
-    "endpoint-builder-init": "node bin/init.js"
+    "endpoint-builder-init": "bin/init.js"
   },
   "scripts": {
     "test-init": "node bin/init.js"

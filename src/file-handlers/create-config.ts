@@ -1,25 +1,26 @@
-import findPath from "./find-path";
-import path from "path";
 import writeFile from "./write-file";
+import findAppRoot from "./find-app-root";
+import getConfig from "./get-config";
+import logger from "../logger";
 
 const createConfig = async () => {
   try {
-    const nodePath = await findPath(__dirname, "node_modules");
+    const appPath = await findAppRoot();
 
-    const root = path.resolve(nodePath, "..");
+    if (!appPath) throw new Error();
 
     const data = {
-      $schema: process.cwd() + "/schema.json",
-      hi: "there",
+      $schema: "node_modules/endpoint-builder/schema.json",
     };
 
-    writeFile(root, "endpoint.config.json", JSON.stringify(data, null, 2));
-    return true;
+    writeFile(appPath, "endpoint.config.json", JSON.stringify(data, null, 2));
+
+    return await getConfig();
   } catch (error) {
-    console.log(
+    logger.fatal(
       "Could not find root dir! Please create endpoint.config.json manually"
     );
-    process.exit(1);
+    return false;
   }
 };
 
