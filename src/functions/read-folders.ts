@@ -14,10 +14,12 @@ function readFolders() {
 
   let totalFiles = 0;
 
-  for (const [name, { path, exclude: configExclude }] of Object.entries(
-    folders
-  )) {
+  for (const [
+    name,
+    { path, exclude: configExclude, include: configInclude },
+  ] of Object.entries(folders)) {
     const exclude = configExclude ? configExclude : [];
+    const include = configInclude ? configInclude : [];
 
     const dirExists = fs.existsSync(CONSTANTS.ROOT + "/" + path);
     if (!dirExists)
@@ -31,13 +33,27 @@ function readFolders() {
     logger.message(`Found ${fileNames.length} files in '${name}'`);
 
     fileNames.forEach((file) => {
-      if (exclude.includes(file)) return;
+      // don't add hidden files
+      if (file.indexOf(".") === 0) {
+        totalFiles -= 1;
+        return;
+      }
 
-      file = handlePeriods(file);
+      if (include.length > 0) {
+        file = handlePeriods(file);
 
-      const { key, value } = convertStringToBase(file);
+        const { key, value } = convertStringToBase(file);
 
-      baseUri[key] = value;
+        baseUri[key] = value;
+      } else {
+        if (exclude.includes(file)) return;
+
+        file = handlePeriods(file);
+
+        const { key, value } = convertStringToBase(file);
+
+        baseUri[key] = value;
+      }
     });
   }
 
