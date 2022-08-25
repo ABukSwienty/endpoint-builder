@@ -59,6 +59,10 @@
         }
       }
     },
+    "copy-to-current-directory": {
+      "description": "Copy the files to the current directory. Defaults to false",
+      "type": "boolean"
+    },
     "const-name": {
       "description": "The const name. Defaults to ENDPOINTS",
       "type": "string",

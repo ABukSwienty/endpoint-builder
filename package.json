@@ -13,7 +13,7 @@
     "endpoint-builder-init": "bin/init.js"
   },
   "scripts": {
-    "test-init": "node bin/init.js",
+    "init": "node bin/init.js",
     "dev": "tsc -w",
     "build": "rm -r lib && tsc",
     "patch": "npm version patch && git push && npm publish",

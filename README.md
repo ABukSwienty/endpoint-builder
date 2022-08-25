@@ -10,6 +10,8 @@ Endpoint builder creates a .js file and .d.ts file of endpoints based on user co
 
 - Built with maintaining endpoints across several apps in mind (fx frontend <-> backend)
 
+<br>
+
 ---
 
 <br>
@@ -32,6 +34,20 @@ Add to your package.json scripts:
 Run `npm run build-endpoints`
 
 - The first run will create a config file at the root of your project (i.e. the first folder to include node_modules) (endpoint.config.json). Run again after config to build files.
+
+<br>
+
+---
+
+<br>
+
+## Usage
+
+```javascript
+import ENDPOINTS from "endpoint-builder";
+```
+
+<br>
 
 ---
 
@@ -70,17 +86,18 @@ export default ENDPOINTS;
 
 ## Config options
 
-| Option              | Description                                                                                                                                              | Defaults    | Type                   | Required |
-| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ---------------------- | -------- |
-| `const-name`        | The name of the endpoint object.                                                                                                                         | `ENDPOINTS` | string                 | no       |
-| `file-prefixes`     | Add any additional information to add to the beginning of the endpoints file such as types or imports                                                    | `""`        | string[]               | no       |
-| `slug-type`         | The slug identifier that is used when endpoint suffixes are typed. **Must contain `*slug*`.**                                                            | `:id*slug*` | string                 | no       |
-| `include-path-name` | Include the path name in the endpoint. Can be overriden by parents                                                                                       | `false`     | boolean                | no       |
-| `path-type`         | The type of path the endpoint should return — function                                                                                                   | `"string"`  | "string" OR "function" | no       |
-| `parents`           | Nests all paths under parent keys. Useful if you need a distinction between an `ENDPOINT.FRONTEND` and an `ENDPOINT.BACKEND`. [More info here](#parents) | `null`      | Object                 | no       |
-| `paths`             | Manually add endpoint paths as string array                                                                                                              | `null`      | string[]               | no       |
-| `folders`           | Read a directory to get path names. Will automatically remove file extensions. [More info here](#folders-options).                                       | `null`      | Object                 | no       |
-| `endpoints`         | The endpoint keys [More info here](#endpoint-options).                                                                                                   | Object      | `null`                 | **yes**  |
+| Option                      | Description                                                                                                                                              | Defaults    | Type                   | Required |
+| --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ---------------------- | -------- |
+| `const-name`                | The name of the endpoint object.                                                                                                                         | `ENDPOINTS` | string                 | no       |
+| `file-prefixes`             | Add any additional information to add to the beginning of the endpoints file such as types or imports                                                    | `""`        | string[]               | no       |
+| `slug-type`                 | The slug identifier that is used when endpoint suffixes are typed. **Must contain `*slug*`.**                                                            | `:id*slug*` | string                 | no       |
+| `include-path-name`         | Include the path name in the endpoint. Can be overriden by parents                                                                                       | `false`     | boolean                | no       |
+| `copy-to-current-directory` | Will copy created files to the current writing directory paths.                                                                                          | `false`     | boolean                | no       |
+| `path-type`                 | The type of path the endpoint should return — function                                                                                                   | `"string"`  | "string" OR "function" | no       |
+| `parents`                   | Nests all paths under parent keys. Useful if you need a distinction between an `ENDPOINT.FRONTEND` and an `ENDPOINT.BACKEND`. [More info here](#parents) | `null`      | Object                 | no       |
+| `paths`                     | Manually add endpoint paths as string array                                                                                                              | `null`      | string[]               | no       |
+| `folders`                   | Read a directory to get path names. Will automatically remove file extensions. [More info here](#folders-options).                                       | `null`      | Object                 | no       |
+| `endpoints`                 | The endpoint keys [More info here](#endpoint-options).                                                                                                   | Object      | `null`                 | **yes**  |
 
 ---
 
@@ -96,6 +113,7 @@ export default ENDPOINTS;
 
 ---
 
+<br>
 ### Endpoint options
 
 | Option       | Description                                                                                                                           | Defaults | Type     | Required |
@@ -117,6 +135,8 @@ export default ENDPOINTS;
 | `path`    | The path to the folder **relative** to the config file | `""`     | string   | no       |
 | `exclude` | The dir items to exclude                               | `[]`     | string[] | no       |
 | `include` | The dir items to include                               | `[]`     | string[] | no       |
+
+<br>
 
 ---
 
@@ -152,7 +172,7 @@ export default ENDPOINTS;
   ],
   "folders": {
     "SRC": {
-      "path": "./test-read-src"
+      "path": "backend/src"
     }
   },
   "parents": {

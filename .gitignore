@@ -3,3 +3,6 @@ endpoint.config.json
 /test-*
 /dist
 index.ts
+index.d.ts
+index.js
+index.js.map
