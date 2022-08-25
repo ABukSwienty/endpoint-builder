@@ -4,6 +4,8 @@ import init from "./functions/init";
 import logger from "./logger";
 import path from "path";
 import createFilePrefixes from "./functions/create-file-prefixes";
+import copyToCurrDir from "./file-handlers/copy-to-curr-dir";
+import CONSTANTS from "./constants";
 
 export interface EndpointOptions {
   suffix: string[];
@@ -28,6 +30,7 @@ export interface EndpointConfig {
   $schema?: string;
   "file-prefixes"?: string[];
   "slug-type": string;
+  "copy-to-current-directory": boolean;
   "include-path-name": boolean;
   "include-base-paths": boolean;
   "path-type": "string" | "function";
@@ -40,6 +43,7 @@ export interface EndpointConfig {
 
 const main = async () => {
   try {
+    CONSTANTS.CURR_DIR = process.cwd();
     await init();
     const endpoint = createEndpoint();
     const filePrefixes = createFilePrefixes();

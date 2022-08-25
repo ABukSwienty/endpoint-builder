@@ -7,15 +7,11 @@ import logger from "../logger";
 const getConfig = async (
   CONFIG_NAME = "endpoint.config.json"
 ): Promise<false | EndpointConfig> => {
-  try {
-    const path = await findPath(__dirname, CONFIG_NAME);
-    const config = getContent(path);
-    CONSTANTS.ROOT = path.replace(CONFIG_NAME, "");
-    return JSON.parse(config);
-  } catch (error) {
-    if (error instanceof Error) logger.error(error.message);
-    return false;
-  }
+  const path = await findPath(__dirname, CONFIG_NAME);
+  if (!path) return false;
+  const config = getContent(path);
+  CONSTANTS.ROOT = path.replace(CONFIG_NAME, "");
+  return JSON.parse(config);
 };
 
 export default getConfig;

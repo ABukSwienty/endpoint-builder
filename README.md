@@ -10,6 +10,8 @@ Endpoint builder creates a .js file and .d.ts file of endpoints based on user co
 
 - Built with maintaining endpoints across several apps in mind (fx frontend <-> backend)
 
+<br>
+
 ---
 
 <br>
@@ -32,6 +34,20 @@ Add to your package.json scripts:
 Run `npm run build-endpoints`
 
 - The first run will create a config file at the root of your project (i.e. the first folder to include node_modules) (endpoint.config.json). Run again after config to build files.
+
+<br>
+
+---
+
+<br>
+
+## Usage
+
+```javascript
+import ENDPOINTS from "endpoint-builder";
+```
+
+<br>
 
 ---
 
@@ -96,6 +112,7 @@ export default ENDPOINTS;
 
 ---
 
+<br>
 ### Endpoint options
 
 | Option       | Description                                                                                                                           | Defaults | Type     | Required |
@@ -117,6 +134,8 @@ export default ENDPOINTS;
 | `path`    | The path to the folder **relative** to the config file | `""`     | string   | no       |
 | `exclude` | The dir items to exclude                               | `[]`     | string[] | no       |
 | `include` | The dir items to include                               | `[]`     | string[] | no       |
+
+<br>
 
 ---
 
@@ -152,7 +171,7 @@ export default ENDPOINTS;
   ],
   "folders": {
     "SRC": {
-      "path": "./test-read-src"
+      "path": "backend/src"
     }
   },
   "parents": {
