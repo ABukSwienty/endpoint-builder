@@ -15,9 +15,10 @@
   "scripts": {
     "init": "node bin/init.js",
     "dev": "tsc -w",
-    "build": "rm -r lib && tsc",
+    "build:dev": "rm -r lib && tsc",
     "patch": "npm version patch && git push && npm publish",
-    "minor": "npm version minor && git push && npm publish"
+    "minor": "npm version minor && git push && npm publish",
+    "build:prod": "rm -r lib && webpack"
   },
   "keywords": [
     "endpoints",
@@ -28,5 +29,10 @@
   "license": "MIT",
   "dependencies": {
     "typescript": "^4.7.4"
+  },
+  "devDependencies": {
+    "ts-loader": "^9.3.1",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
   }
 }

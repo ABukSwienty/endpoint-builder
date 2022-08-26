@@ -6,3 +6,4 @@ index.ts
 index.d.ts
 index.js
 index.js.map
+tsconfig.build.tsbuildinfo

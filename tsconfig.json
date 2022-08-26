@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
+    "rootDir": "./src",
     "outDir": "./lib",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
@@ -21,5 +22,6 @@
     "strict": true,
     "esModuleInterop": true
   },
-  "include": ["src/*.ts"]
+  "include": ["src/*.ts"],
+  "exclude": ["node_modules"]
 }

@@ -1,4 +1,5 @@
 import writeFile from "./file-handlers/write-file";
+import copyToCurrDir from "./file-handlers/copy-to-curr-dir";
 import createEndpoint from "./functions/create-endpoint";
 import init from "./functions/init";
 import logger from "./logger";
@@ -40,6 +41,10 @@ export interface EndpointConfig {
   paths?: string[];
 }
 
+/**
+ * Main entry. Returns contants and logger to finalize in bin
+ * @returns Object with CONSTANTS, logger and copyToDir
+ */
 const main = async () => {
   try {
     CONSTANTS.CURR_DIR = process.cwd();
@@ -51,6 +56,12 @@ const main = async () => {
       "index.ts",
       filePrefixes + "\n" + endpoint
     );
+
+    return {
+      CONSTANTS,
+      logger,
+      copyToCurrDir,
+    };
   } catch (error) {
     if (error instanceof Error)
       logger.fatal("An unknown error occurred: " + error.message);
