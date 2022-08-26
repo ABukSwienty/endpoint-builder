@@ -10,7 +10,6 @@ import writeFile from "./write-file";
 const copyToCurrDir = () => {
   const copyToPath = CONSTANTS.CURR_DIR;
   const copyFromPath = path.resolve(__dirname, "..", "dist");
-  console.log(copyFromPath);
   if (!fs.existsSync(copyFromPath))
     logger.fatal("Could not find the dist folder.");
 
