@@ -1,6 +1,10 @@
 import CONSTANTS from "../constants";
 import convertStringToBase from "../helpers/convert-string-to-base";
 
+/**
+ * Reads paths if any defined in the config.
+ * @returns undefined
+ */
 const readPaths = () => {
   const paths = CONSTANTS.CONFIG.paths;
   if (!paths) return;

@@ -4,6 +4,12 @@ import functionToString from "../helpers/functionToString";
 import suffixReader from "../helpers/suffix-reader";
 import logger from "../logger";
 
+/**
+ * Writes the endpoint object. Loops through the endpoint key in config and then loops through all paths found from folders or added manually.
+ * @param returnTypeFnc "string" | "function"
+ * @param includePathName boolean
+ * @returns string
+ */
 function createStringEndpointObj(
   returnTypeFnc: "string" | "function" = "string",
   includePathName: boolean = false

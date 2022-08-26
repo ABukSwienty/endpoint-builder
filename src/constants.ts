@@ -1,9 +1,21 @@
 import { EndpointConfig } from ".";
 
 export interface Constants {
+  /**
+   * The 'app root' where the config file is located.
+   */
   ROOT: string;
+  /**
+   * The current working directory. I.e where the build script was called from (or where the package.json file is).
+   */
   CURR_DIR: string;
+  /**
+   * All paths found from folders or added without any suffixes or slugs.
+   */
   BASE_PATHS: Record<string, string>;
+  /**
+   * The endpoint.config.json object
+   */
   CONFIG: EndpointConfig;
 }
 

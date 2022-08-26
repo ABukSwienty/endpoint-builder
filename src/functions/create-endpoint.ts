@@ -4,6 +4,10 @@ import createStringEndpointObj from "./create-string-endpoint-obj";
 import tabAll from "../helpers/tab-all";
 import createParents from "./create-parents";
 
+/**
+ * Writes the endpoint object.
+ * @returns string
+ */
 const createEndpoint = () => {
   let endpoint = `const ${CONSTANTS.CONFIG["const-name"]} = {\n`;
 

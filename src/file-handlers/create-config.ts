@@ -5,6 +5,10 @@ import logger from "../logger";
 import CONSTANTS from "../constants";
 import { EndpointConfig } from "../index";
 
+/**
+ * Creates a config file.
+ * @returns false | config object
+ */
 const createConfig = async () => {
   const appPath = await findAppRoot();
 
@@ -15,6 +19,7 @@ const createConfig = async () => {
     return false;
   }
 
+  // The default / example config file to be created
   const data: EndpointConfig = {
     $schema: "node_modules/endpoint-builder/endpoint.schema.json",
     ...CONSTANTS.CONFIG,

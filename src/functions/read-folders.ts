@@ -1,11 +1,13 @@
-/* import config from "../../uri.config.json"; */
 import fs from "fs";
 import CONSTANTS from "../constants";
 import convertStringToBase from "../helpers/convert-string-to-base";
 import handlePeriods from "../helpers/handlePeriods";
 import logger from "../logger";
-/* import logger from "../log/logger"; */
 
+/**
+ * Loops through a folder dir (if it exists) and creates BASE_PATHS based on given files found.
+ * @returns undefined
+ */
 function readFolders() {
   const folders = CONSTANTS.CONFIG.folders;
   if (!folders) return;
@@ -39,6 +41,7 @@ function readFolders() {
         return;
       }
 
+      // include x or exclude x
       if (include.length > 0) {
         file = handlePeriods(file);
 

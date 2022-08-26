@@ -4,6 +4,9 @@ import path from "path";
 import logger from "../logger";
 import writeFile from "./write-file";
 
+/**
+ * Copys ./dist files compiled by ts to the current working directory.
+ */
 const copyToCurrDir = () => {
   const copyToPath = CONSTANTS.CURR_DIR;
   const copyFromPath = path.resolve(__dirname, "..", "..", "dist");

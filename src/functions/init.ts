@@ -5,6 +5,9 @@ import logger from "../logger";
 import readFolders from "./read-folders";
 import readPaths from "./read-paths";
 
+/**
+ * Init function. Looks for config. Reads folders and manually added paths and adds them to the CONSTANT.BASE_PATH.
+ */
 const init = async () => {
   logger.message("Looking for endpoint.config.json");
   let config = await getConfig();

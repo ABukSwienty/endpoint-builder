@@ -1,8 +1,12 @@
 import { ParentOptions } from "..";
-import CONSTANTS from "../constants";
 import tabAll from "../helpers/tab-all";
 import createStringEndpointObj from "./create-string-endpoint-obj";
 
+/**
+ * Writes the parent keys that contain all endpoints.
+ * @param parents Record<string, ParentOptions>
+ * @returns string
+ */
 const createParents = (parents: Record<string, ParentOptions>) => {
   let parentString = "";
   for (const [parent, options] of Object.entries(parents)) {

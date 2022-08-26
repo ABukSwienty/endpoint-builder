@@ -4,7 +4,6 @@ import init from "./functions/init";
 import logger from "./logger";
 import path from "path";
 import createFilePrefixes from "./functions/create-file-prefixes";
-import copyToCurrDir from "./file-handlers/copy-to-curr-dir";
 import CONSTANTS from "./constants";
 
 export interface EndpointOptions {
