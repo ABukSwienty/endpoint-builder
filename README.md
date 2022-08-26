@@ -2,6 +2,8 @@
 
 > A simple tool for creating a typesafe .js file with an object that holds endpoints.
 
+![npm bundle size](https://img.shields.io/bundlephobia/min/endpoint-builder?style=plastic)
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/endpoint-builder?style=plastic)
 <br>
 
 ## About
