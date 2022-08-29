@@ -1,5 +1,5 @@
 const convertStringToBase = (string: string) => ({
-  key: string.toUpperCase().replace("-", "_"),
+  key: string.toUpperCase().replace(/_/g, "-"),
   value: string.toLowerCase(),
 });
 

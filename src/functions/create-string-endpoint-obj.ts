@@ -79,7 +79,7 @@ function createStringEndpointObj(
     // looping through custom if any
     if (custom) {
       for (const [key, suffixes] of Object.entries(custom)) {
-        const customUri = key.toLocaleLowerCase().replace("_", "-");
+        const customUri = key.toLocaleLowerCase().replace(/_/g, "-");
 
         let customStringKey =
           returnTypeFnc === "function"
