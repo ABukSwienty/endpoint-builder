@@ -63,8 +63,7 @@ const main = async () => {
       copyToCurrDir,
     };
   } catch (error) {
-    if (error instanceof Error)
-      logger.fatal("An unknown error occurred: " + error.message);
+    if (error instanceof Error) logger.fatal("An unknown error occurred");
   }
 };
 
