@@ -83,7 +83,7 @@ function createStringEndpointObj(
         let customStringKey =
           returnTypeFnc === "function"
             ? `${key}: ${functionToString(customUri, suffixReader(suffixes))},`
-            : `${key}: "${customUri + "/"}${suffixReader(suffixes).toString}",`;
+            : `${key}: "${customUri}${suffixReader(suffixes).toString}",`;
 
         stringObject += "\n\t" + customStringKey;
       }
