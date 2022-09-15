@@ -116,6 +116,7 @@ export default ENDPOINTS;
 ---
 
 <br>
+
 ### Endpoint options
 
 | Option       | Description                                                                                                                           | Defaults | Type     | Required |
@@ -124,7 +125,7 @@ export default ENDPOINTS;
 | `exclude`    | Will exclude paths.                                                                                                                   | `[]`     | string[] | no       |
 | `include`    | Will include paths.                                                                                                                   | `[]`     | string[] | no       |
 | `suffix`     | Suffixes to be added at the end of the path. Supports types **IF** followed by a colon: ['id:number', 'type:string', 'custom-suffix'] | `""`     | string[] | no       |
-| `custom`     | Custom paths.                                                                                                                         | `null`   | Object   | no       |
+| `custom`     | Custom paths. Will include key name as uri-path. Accepts string array of suffixes                                                     | `null`   | string[] | no       |
 
 ---
 
