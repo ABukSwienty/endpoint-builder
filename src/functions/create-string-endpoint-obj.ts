@@ -80,10 +80,17 @@ function createStringEndpointObj(
     if (custom) {
       for (const [key, suffixes] of Object.entries(custom)) {
         const customUri = key.toLocaleLowerCase().replace(/_/g, "-");
+        const hasSuffix = suffixes.length > 0;
+        const base = convertStringToBase(path).value;
         let customStringKey =
           returnTypeFnc === "function"
-            ? `${key}: ${functionToString(customUri, suffixReader(suffixes))},`
-            : `${key}: "${customUri}${suffixReader(suffixes).toString}",`;
+            ? `${key}: ${functionToString(
+                includePathName ? base + "/" + customUri : customUri,
+                suffixReader(suffixes)
+              )},`
+            : `${key}: "${
+                includePathName ? base + "/" + customUri : customUri
+              }${hasSuffix ? "/" : ``}${suffixReader(suffixes).toString}",`;
 
         stringObject += "\n\t" + customStringKey;
       }

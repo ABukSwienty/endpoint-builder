@@ -18,7 +18,8 @@
     "build:dev": "rm -r lib && tsc",
     "patch": "npm version patch && git push && npm publish",
     "minor": "npm version minor && git push && npm publish",
-    "build:prod": "rm -r lib && webpack"
+    "build:prod": "rm -r lib && webpack",
+    "build:init": "npm run build:prod && npm run init"
   },
   "keywords": [
     "endpoints",
